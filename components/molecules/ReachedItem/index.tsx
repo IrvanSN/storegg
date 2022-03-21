@@ -5,7 +5,7 @@ interface ReachedItemProps {
   description: string;
 }
 
-export default function Index(props: ReachedItemProps) {
+export default function ReachedItem(props: ReachedItemProps) {
   const { title, description } = props;
   return (
     <div className="me-lg-35 ms-lg-35">

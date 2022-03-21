@@ -1,7 +1,21 @@
-import React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import FeaturedGameItem from '../../molecules/FeaturedGameItem/index';
+import { getFeaturedGame } from '../../../services/player';
+import { GameItemTypes } from '../../../services/data-types';
 
-export default function Index() {
+export default function FeaturedGame() {
+  const [gameList, setGameList] = useState([]);
+
+  const getFeaturedGameList = useCallback(async () => {
+    const data = await getFeaturedGame();
+    setGameList(data);
+  }, [getFeaturedGame]);
+
+  useEffect(() => {
+    getFeaturedGameList();
+  }, []);
+
+  const API_IMG = process.env.NEXT_PUBLIC_IMG;
   return (
     <section className="featured-game pt-50 pb-50">
       <div className="container-fluid">
@@ -14,36 +28,15 @@ export default function Index() {
           className="d-flex flex-row flex-lg-wrap overflow-setting justify-content-lg-between gap-lg-3 gap-4"
           data-aos="fade-up"
         >
-          <FeaturedGameItem
-            thumbnail="1"
-            href="/detail"
-            title="Super Mechs"
-            device="Mobile"
-          />
-          <FeaturedGameItem
-            thumbnail="2"
-            href="/detail"
-            title="Call of Duty: Modern"
-            device="Mobile"
-          />
-          <FeaturedGameItem
-            thumbnail="3"
-            href="/detail"
-            title="Mobile Legends"
-            device="Mobile"
-          />
-          <FeaturedGameItem
-            thumbnail="4"
-            href="/detail"
-            title="Clash of Clans"
-            device="Mobile"
-          />
-          <FeaturedGameItem
-            thumbnail="5"
-            href="/detail"
-            title="Valorant"
-            device="Desktop"
-          />
+          {gameList.map((item: GameItemTypes) => (
+            <FeaturedGameItem
+              key={item._id}
+              thumbnail={`${API_IMG}/${item.thumbnail}`}
+              title={item.gameName}
+              href={item._id}
+              device={item.category.name}
+            />
+          ))}
         </div>
       </div>
     </section>

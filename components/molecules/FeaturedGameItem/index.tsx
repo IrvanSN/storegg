@@ -3,23 +3,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface FeaturedGameItemProps {
-  thumbnail: '1' | '2' | '3' | '4' | '5';
+  thumbnail: string;
   href: string;
   title: string;
   device: string;
 }
 
-export default function Index(props: FeaturedGameItemProps) {
+export default function featuredGameItem(props: FeaturedGameItemProps) {
   const { thumbnail, href, title, device } = props;
 
   return (
     <div className="featured-game-card position-relative">
-      <Link href={href}>
+      <Link href={`/detail/${href}`}>
         <a>
           <div className="blur-sharp">
             <Image
               className="thumbnail"
-              src={`/img/Thumbnail-${thumbnail}.png`}
+              src={thumbnail}
               width="205"
               height="270"
               alt=""

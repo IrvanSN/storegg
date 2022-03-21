@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Index() {
+export default function Story() {
   return (
     <section className="story pt-50 pb-50">
       <div className="container-xxl container-fluid">

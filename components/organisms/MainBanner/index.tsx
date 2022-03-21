@@ -1,8 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import Illustration from './Illustration';
 
-export default function Index() {
+export default function MainBanner() {
   return (
     <section className="header pt-lg-60 pb-50">
       <div className="container-xxl container-fluid">

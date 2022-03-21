@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Menu from './Menu';
 
-export default function Index() {
+export default function Footer() {
   return (
     <section className="footer pt-50">
       <footer>

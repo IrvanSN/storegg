@@ -1,7 +1,7 @@
 import React from 'react';
 import StepItem from '../../molecules/StepItem/index';
 
-export default function Index() {
+export default function TransactionStep() {
   return (
     <section id="feature" className="feature pt-50 pb-50">
       <div className="container-fluid">

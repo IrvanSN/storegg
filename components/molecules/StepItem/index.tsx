@@ -7,7 +7,7 @@ interface StepProps {
   description2: string;
 }
 
-export default function Index(props: StepProps) {
+export default function StepItem(props: StepProps) {
   const { title, icon, description1, description2 } = props;
   return (
     <div className="col-lg-4">

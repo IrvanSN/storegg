@@ -1,7 +1,7 @@
 import React from 'react';
 import ReachedItem from '../../molecules/ReachedItem/index';
 
-export default function Index() {
+export default function Reached() {
   return (
     <section className="reached pt-50 pb-50">
       <div className="container-fluid">
